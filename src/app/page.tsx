@@ -52,22 +52,20 @@ const Home = () => {
             </select>
           </div>
         </div>
-        <div className="w-[95%] grid grid-cols-3 auto-rows-[340px] h-max mt-[100px] gap-[20px]">
+        <div className="w-[95%] grid grid-cols-2 auto-rows-[450px] h-max mt-[100px] gap-[20px]">
           {chars.map((char) => (
             <div
-              className="flex justify-self-center self-center w-[600px] h-[300px] bg-teal-800 rounded-[10px] border-[3px] border-lime-400"
+              className="flex justify-self-center self-center w-[900px] h-[400px] bg-teal-800 rounded-[10px] border-[3px] border-lime-400"
               key={char.id}
             >
               <div
-                className="h-[100%] aspect-square"
+                className="h-[100%] aspect-square bg-no-repeat bg-cover"
                 style={{ backgroundImage: `url('${char.image}')` }}
               ></div>
-              <div className="info flex flex-col flex items-start justify-between w-[100%]">
+              <div className="info flex flex-col items-start justify-around w-[100%] ml-[10px]">
                 <h1 className="font-extrabold text-4xl whitespace-normal mx-auto">{char.name}</h1>
-                <div className="text-2xl whitespace-normal">{char.species}</div>
-                <div className="text-2xl whitespace-normal">{char.status}</div>
-                <div className="text-2xl whitespace-normal">{char.gender}</div>
-                <div className="text-2xl whitespace-normal">{char.origin.name}</div>
+                <div className="text-2xl whitespace-normal">{char.species}, {char.gender} - {char.status}</div>
+                <div className="text-2xl whitespace-normal">From {char.origin.name}</div>
                 <div className="text-2xl whitespace-normal">{char.location.name}</div>
               </div>
             </div>
