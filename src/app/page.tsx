@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <main className="w-[100%]">
       <div className="flex justify-between w-[100%] flex-col justify-center items-center">
-        <div className="h-[150px] w-[100%] bg-teal-400 shadow-xl sticky top-0 flex justify-between">
+        <div className="h-[100px] w-[100%] bg-teal-400 shadow-xl sticky top-0 flex justify-between">
           <img
             src="/img/logo.png"
             alt="Rick and Morty Logo"
