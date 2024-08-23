@@ -135,18 +135,18 @@ const Home = () => {
 
                 <div className="info flex flex-col h-[100%] w-[99%] justify-between my-[10px] mx-[auto]">
                   <h1
-                    className={`font-extrabold text-2xl whitespace-normal mx-auto text-center tracking-widest uppercase`}
+                    className={`font-extrabold text-2xl whitespace-normal mx-auto text-center tracking-widest uppercase text-white`}
                     style={{color: char.status === Status.D ? '#a3e635' : '#ef4444'}}
                   >
                     {char.name}
                   </h1>
-                  <div className="text-2xl whitespace-normal text-center tracking-widest">
+                  <div className="text-2xl whitespace-normal text-center tracking-widest text-white">
                     {char.species}({char.gender})
                   </div>
-                  <div className="text-xl whitespace-normal text-center tracking-widest">
+                  <div className="text-xl whitespace-normal text-center tracking-widest text-white">
                     Origin: {char.origin.name}
                   </div>
-                  <div className="text-xl whitespace-normal text-center tracking-widest">
+                  <div className="text-xl whitespace-normal text-center tracking-widest text-white">
                     Location: {char.location.name}
                   </div>
                 </div>
