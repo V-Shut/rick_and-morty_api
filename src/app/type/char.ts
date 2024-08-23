@@ -1,5 +1,12 @@
-type Char = {
-  id: 1;
+type Info = {
+  count: number;
+  pages: number;
+  next: string | null;
+  prev: string | null;
+}
+
+type Character = {
+  id: number;
   name: string;
   status: string;
   species: string;
@@ -17,4 +24,9 @@ type Char = {
   episode: string[];
   url: string;
   created: string;
-};
+}
+
+type CharactersResponse = {
+  info: Info;
+  results: Character[];
+}
