@@ -27,10 +27,6 @@ const Home = () => {
     setPage(0);
   }
 
-  const charStatus = (basis: string, status: string) => {
-    return status === Status.D ? `${basis}-lime-400` : `${basis}-red-500`;
-  };
-
   const buttonColor = (num: number) => {
     return num === page ? "bg-red-500" : "bg-lime-400";
   };
@@ -85,7 +81,7 @@ const Home = () => {
   return (
     <main className="w-[100%]">
       <div className="flex justify-between w-[100%] flex-col justify-center items-center">
-        <div className="h-[70px] w-[100%] shadow-xl sticky top-0 flex justify-between z-10">
+        <div className="h-[70px] w-[100%] shadow-xl bg-teal-400 sticky top-0 flex justify-between z-10">
           <img
             src="/img/logo.png"
             alt="Rick and Morty Logo"
@@ -118,12 +114,10 @@ const Home = () => {
           {pageList.length > 0 &&
             pageList.map((char) => (
               <div
-                className={`flex justify-self-center self-center w-[300px] h-[550px] bg-teal-800 rounded-[20px] border-[2px] ${charStatus(
-                  "border",
-                  char.status
-                )} overflow-hidden flex-col hover:scale-105 duration-200 relative`}
+                className={`flex justify-self-center self-center w-[300px] h-[550px] bg-teal-800 rounded-[20px] border-[2px] overflow-hidden flex-col hover:scale-105 duration-200 relative`}
                 key={char.id}
                 onClick={() => console.log(char.id)}
+                style={{borderColor: char.status === Status.D ? '#a3e635' : '#ef4444'}}
               >
                 <div className="w-[100%] aspect-square">
                   <div
@@ -133,20 +127,16 @@ const Home = () => {
                 </div>
 
                 <div
-                  className={`absolute w-[100%] h-[30px] ${charStatus(
-                    "bg",
-                    char.status
-                  )} bg-lime-400 top-[50%] text-black text-center align-middle uppercase leading-[30px] text-xl font-bold tracking-widest`}
+                  className={`absolute w-[100%] h-[30px] bg-lime-400 top-[50%] text-black text-center align-middle uppercase leading-[30px] text-xl font-bold tracking-widest`}
+                  style={{backgroundColor: char.status === Status.D ? '#a3e635' : '#ef4444'}}
                 >
                   {char.status === Status.D ? "liquidated" : "in progress"}
                 </div>
 
                 <div className="info flex flex-col h-[100%] w-[99%] justify-between my-[10px] mx-[auto]">
                   <h1
-                    className={`font-extrabold text-2xl whitespace-normal mx-auto text-center ${charStatus(
-                      "text",
-                      char.status
-                    )} tracking-widest uppercase`}
+                    className={`font-extrabold text-2xl whitespace-normal mx-auto text-center tracking-widest uppercase`}
+                    style={{color: char.status === Status.D ? '#a3e635' : '#ef4444'}}
                   >
                     {char.name}
                   </h1>
