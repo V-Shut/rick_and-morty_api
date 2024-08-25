@@ -1,4 +1,5 @@
 # Rick and Morty API Explorer
+[DEMO LINK](https://rick-and-morty-api-swart-eight.vercel.app/)
 
 This project is a web application that allows users to browse and sort characters from the "Rick and Morty" universe using the official API.
 
@@ -18,9 +19,13 @@ This project is a web application that allows users to browse and sort character
 - **React-Select**: A flexible and beautiful Select Input control for ReactJS with multiselect, autocomplete, and AJAX support.
 - **Tailwind CSS**: A utility-first CSS framework for building custom designs.
 
-## Getting Started
+## Project Structure
 
-### Prerequisites
+- **`components/`**: Contains reusable React components like `Header`, `Pagination`, `Loading`, and `Char`.
+- **`pages/`**: Contains Next.js pages like the main `Home` component.
+- **`reduxData/`**: Redux slices and API configurations.
+- **`styles/`**: Global CSS and Tailwind configuration.
+- **`public/`**: Static files like images.
 
 Make sure you have the following installed:
 
@@ -34,3 +39,18 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/your-username/rick-and-morty-api-explorer.git
    cd rick-and-morty-api-explorer
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+
+
+4. **Open your browser:**
+
+   The application will be available at http://localhost:3000.
