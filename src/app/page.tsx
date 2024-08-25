@@ -48,9 +48,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (NUM_PAGES > 0) {
-      fetchAllCharacters();
-    }
+    fetchAllCharacters();
   }, [NUM_PAGES]);
 
   if (error) return <div>Something went wrong!</div>;

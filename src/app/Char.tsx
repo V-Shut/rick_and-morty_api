@@ -29,13 +29,14 @@ export const Char: React.FC<Props> = ({ char }) => {
       return '#f56702';
     }
   }
-  console.log(char.status, Status.D)
+  
   return (
     <div
       className={`flex justify-self-center self-center w-[300px] h-[550px] bg-teal-800 rounded-[20px] border-[3px] overflow-hidden flex-col hover:scale-105 duration-200 relative`}
       style={{
         borderColor: charColor(),
       }}
+      onClick={() => console.log(char.status)}
     >
       <div className="w-[100%] aspect-square">
         <div
