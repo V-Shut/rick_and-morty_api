@@ -5,18 +5,7 @@ import { useGetCharsQuery } from "@/reduxData/characters.api";
 import { Header } from "./Header";
 import { Loading } from "./Loading";
 import { CharList } from "./CharList";
-
-export enum Status {
-  A = "Alive",
-  D = "Dead",
-}
-
-enum Sort {
-  Name = "name",
-  Species = "species",
-  Status = "status",
-  Gender = "gender",
-}
+import { Sort } from "./type/enums";
 
 const Home = () => {
   const [page, setPage] = useState<number>(1);

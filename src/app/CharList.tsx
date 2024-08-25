@@ -1,4 +1,4 @@
-import { Status } from "./page";
+import { Status } from "./type/enums";
 
 interface Props {
 char: Character
