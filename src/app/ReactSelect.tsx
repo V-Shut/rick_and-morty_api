@@ -1,10 +1,13 @@
-import Select, { StylesConfig } from "react-select";
+import Select, { StylesConfig, SingleValue, ActionMeta, GroupBase } from "react-select";
+
+// Визначте тип для вашого Select
+type OptionType = { value: string; label: string };
 
 interface Props {
   sortParam: (value: string) => void;
 }
 
-const customStyles: StylesConfig = {
+const customStyles: StylesConfig<OptionType, false, GroupBase<OptionType>> = {
   control: (provided, state) => ({
     ...provided,
     backgroundColor: state.isFocused ? "#FAFBFC" : "#fff",
@@ -14,7 +17,7 @@ const customStyles: StylesConfig = {
     fontSize: "14px",
     outline: "none",
     width: "128px",
-    hight: "30px",
+    height: "30px", // виправлено "hight" на "height"
     "&:hover": {
       borderColor: "#89939A",
     },
@@ -39,9 +42,10 @@ const customStyles: StylesConfig = {
     ...provided,
     display: "none",
   }),
+  // Додайте інші стилі тут, якщо потрібно
 };
 
-const options = [
+const options: OptionType[] = [
   { value: "no", label: "No Sorting" },
   { value: "name", label: "Name" },
   { value: "species", label: "Species" },
@@ -55,6 +59,10 @@ export const ReactSelect: React.FC<Props> = ({ sortParam }) => (
     defaultValue={options[0]}
     isSearchable={false}
     styles={customStyles}
-    onChange={(e) => sortParam(e.value)}
+    onChange={(newValue: SingleValue<OptionType>, actionMeta: ActionMeta<OptionType>) => {
+      if (newValue) {
+        sortParam(newValue.value);
+      }
+    }}
   />
 );
