@@ -1,6 +1,5 @@
 import Select, { StylesConfig, SingleValue, ActionMeta, GroupBase } from "react-select";
 
-// Визначте тип для вашого Select
 type OptionType = { value: string; label: string };
 
 interface Props {
@@ -47,11 +46,10 @@ const customStyles: StylesConfig<OptionType, false, GroupBase<OptionType>> = {
     ...provided,
     display: "none",
   }),
-  // Додайте інші стилі тут, якщо потрібно
 };
 
 const options: OptionType[] = [
-  { value: "no", label: "No Sorting" },
+  { value: "no", label: "No sorting" },
   { value: "name", label: "Name" },
   { value: "species", label: "Species" },
   { value: "status", label: "Status" },
