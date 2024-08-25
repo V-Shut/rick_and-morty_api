@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useGetCharsQuery } from "@/reduxData/characters.api";
 import { Header } from "./Header";
 import { Loading } from "./Loading";
-import { CharList } from "./CharList";
+import { Char } from "./Char";
 import { Sort } from "./type/enums";
 import { Pagination } from "./Pugination";
 
@@ -48,8 +48,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchAllCharacters();
-
     if (NUM_PAGES > 0) {
       fetchAllCharacters();
     }
@@ -63,7 +61,6 @@ const Home = () => {
       : allCharacters.slice((page - 1) * 20, (page - 1) * 20 + 20);
 
   const sortParam = (param: string) => {
-    console.log(param);
     switch (true) {
       case param === Sort.Name:
         setAllCharacters((prevList) =>
@@ -109,7 +106,7 @@ const Home = () => {
           <>
             <div className="w-[95%] grid auto-rows-[600px] h-max mt-[20px] xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
               {pageList.length > 0 &&
-                pageList.map((char) => <CharList key={char.id} char={char} />)}
+                pageList.map((char) => <Char key={char.id} char={char} />)}
             </div>
             <Pagination pages={pages} page={page} setPage={setPage} />
           </>
