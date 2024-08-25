@@ -6,6 +6,7 @@ import { Header } from "./Header";
 import { Loading } from "./Loading";
 import { CharList } from "./CharList";
 import { Sort } from "./type/enums";
+import { Pagination } from "./Pugination";
 
 const Home = () => {
   const [page, setPage] = useState<number>(1);
@@ -24,10 +25,6 @@ const Home = () => {
   if (page < 0) {
     setPage(0);
   }
-
-  const buttonColor = (num: number) => {
-    return num === page ? "bg-red-500" : "bg-lime-400";
-  };
 
   const fetchAllCharacters = async () => {
     const fetchPage = async (page: number) => {
@@ -109,46 +106,13 @@ const Home = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="w-[95%] grid auto-rows-[600px] h-max mt-[20px] xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-            {pageList.length > 0 &&
-              pageList.map((char) => <CharList key={char.id} char={char} />)}
-          </div>
-        )}
-
-        {!isLoading && (
-          <div className="container flex justify-center gap-[5px] mt-[20px] mb-[50px]">
-            {page > 3 && (
-              <button
-                className="w-[50px] aspect-square text-black bg-lime-400 mr-[20px]"
-                onClick={() => setPage(1)}
-              >
-                1
-              </button>
-            )}
-            {pages
-              .slice(page < 3 ? 0 : page - 3, page < 3 ? 5 : page + 2)
-              .map((num) => (
-                <button
-                  className={`w-[50px] aspect-square text-black ${buttonColor(
-                    num
-                  )}`}
-                  onClick={() => {
-                    setPage(num);
-                  }}
-                  key={num}
-                >
-                  {num}
-                </button>
-              ))}
-            {page < 40 && (
-              <button
-                className="w-[50px] aspect-square text-black bg-lime-400 ml-[20px]"
-                onClick={() => setPage(42)}
-              >
-                42
-              </button>
-            )}
-          </div>
+          <>
+            <div className="w-[95%] grid auto-rows-[600px] h-max mt-[20px] xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
+              {pageList.length > 0 &&
+                pageList.map((char) => <CharList key={char.id} char={char} />)}
+            </div>
+            <Pagination pages={pages} page={page} setPage={setPage} />
+          </>
         )}
       </div>
     </main>

@@ -1,7 +1,7 @@
 import { Status } from "./type/enums";
 
 interface Props {
-char: Character
+char: Character,
 }
 
 export const CharList: React.FC<Props> = ({char}) => {

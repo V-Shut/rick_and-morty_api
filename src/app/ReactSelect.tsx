@@ -13,11 +13,12 @@ const customStyles: StylesConfig<OptionType, false, GroupBase<OptionType>> = {
     backgroundColor: state.isFocused ? "#FAFBFC" : "#fff",
     boxShadow: "none",
     borderColor: "#B4BDC3",
+    borderRadius: '8px',
     fontFamily: "Mont, sans-serif",
     fontSize: "14px",
     outline: "none",
     width: "128px",
-    height: "30px", // виправлено "hight" на "height"
+    height: "30px",
     "&:hover": {
       borderColor: "#89939A",
     },
@@ -25,6 +26,10 @@ const customStyles: StylesConfig<OptionType, false, GroupBase<OptionType>> = {
       borderColor: "#313237",
       backgroundColor: "#313237",
     },
+  }),
+  singleValue: (provided, state) => ({
+    ...provided,
+    color: "#89939A",
   }),
   option: (provided) => ({
     ...provided,
